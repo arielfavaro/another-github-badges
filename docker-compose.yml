@@ -7,6 +7,9 @@ services:
         ports:
             - 3000:3000
         restart: unless-stopped
+        environment:
+            GITHUB_USER_ID: ${GITHUB_USER_ID}
+            GITHUB_USER_TOKEN: ${GITHUB_USER_TOKEN}
     db:
         image: mysql:8.0.28
         container_name: another-github-badges-db
