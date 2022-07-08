@@ -7,7 +7,9 @@
   "scripts": {
     "start": "node ./src/server.js",
     "dev": "nodemon ./src/server.js",
-    "lint": "eslint ./"
+    "lint": "eslint ./",
+    "migrate:up": "npx sequelize-cli db:migrate",
+    "migrate:undo": "npx sequelize-cli db:migrate:undo"
   },
   "author": "Ariel Favaro <arieltainan@gmail.com>",
   "license": "MIT",
@@ -17,10 +19,13 @@
     "cron": "^2.0.0",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "express-validator": "^6.14.2"
+    "express-validator": "^6.14.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.2"
   },
   "devDependencies": {
     "eslint": "^8.19.0",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "sequelize-cli": "^6.4.1"
   }
 }
