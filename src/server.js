@@ -6,6 +6,7 @@ const cron = require('cron');
 const chalk = require('chalk');
 const { visits } = require('./lib/badges');
 const apiGithub = require('./services/apiGithub');
+const db = require('./models/index');
 
 const port = process.env.PORT || 3000;
 
@@ -26,15 +27,24 @@ routerBadges.get('/visits/:user/:repo', async (req, res) => {
         const { data } = await apiGithub.get(`/repos/${user}/${repo}`);
         const { id, full_name, url } = data;
 
-        // TODO implement
-        // TODO save repo id as key instead of user-repo as slug on database?
-        console.log(id);
+        const [repoDatabase, created] = await db.Repo.findOrCreate({
+            where: {
+                repoId: id,
+            },
+            defaults: {
+                visits: 0,
+            }
+        });
+
+        // TODO check better usage
+        const { dataValues } = await repoDatabase.increment('visits');
+
+        return res.type('svg').send(visits(dataValues.visits));
 
     } catch (error) {
+        console.error('Error on retrieving repo and saving to database');
         return res.status(400).send('Whoops 👻');
     }
-
-    res.type('svg').send(visits(123));
 });
 
 app.use('/badges', routerBadges);
