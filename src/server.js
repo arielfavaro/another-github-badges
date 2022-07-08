@@ -1,9 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const routerBadges = express.Router();
 const { visits } = require('./lib/badges');
-
-require('dotenv').config();
 
 const port = process.env.PORT || 3000;
 
