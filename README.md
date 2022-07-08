@@ -20,7 +20,7 @@ or
 ## TODO 📌
 ### Application
 - Add throttling to endpoints
-### Bagdes
+### Badges
 - Add badge that shows on chart the last 7 days visits history
 - Add more badges
 - Add badges themes
