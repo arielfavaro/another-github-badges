@@ -14,7 +14,7 @@ Replace `your-username` and `your-repository-name` accordingly
 ```
 or
 ```markdown
-<img src"https://another-github-badges.ari.dev.br/badges/visits/your-username/your-repository-name" />
+<img src="https://another-github-badges.ari.dev.br/badges/visits/your-username/your-repository-name" />
 ```
 
 ## TODO 📌
