@@ -10,6 +10,9 @@ const db = require('./models/index');
 
 const port = process.env.PORT || 3000;
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 app.get('/', (req, res) => {
     res.redirect('https://github.com/arielfavaro');
 });
