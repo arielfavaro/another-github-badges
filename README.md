@@ -1,13 +1,17 @@
 # Another Github Badges
+**GitHub Badges for your README.md profile and projects, like visits counter.**
+
+This version is based on **repository id**, so it's safe to rename your repository and change the badge URL. This will keep the stats intact.
+
+There is no way to count unique visitors, because GitHub proxies all images URLs through [GitHub Camo](https://github.blog/2010-11-13-sidejack-prevention-phase-3-ssl-proxied-assets/)
 
 ## Available Badges 🎟
 **Add to your README.md via markdown syntax:**
 
 ### Visits Counter
+![](https://another-github-badges.ari.dev.br/badges/visits/arielfavaro/another-github-badges)
 
 Replace `your-username` and `your-repository-name` accordingly
-
-![](https://another-github-badges.ari.dev.br/badges/visits/arielfavaro/another-github-badges)
 
 ```markdown
 ![](https://another-github-badges.ari.dev.br/badges/visits/your-username/your-repository-name)
@@ -19,15 +23,16 @@ or
 
 ## TODO 📌
 ### Application
-- Add throttling to endpoints
+- Add home page
+- Add page showing badges and examples when visiting `/badges`
 ### Badges
 - Add badge that shows on chart the last 7 days visits history
-- Add more badges
 - Add badges themes
 - Add badges translations
 
 ## Running locally
-Setup the environment variables with your GitHub Id and Token
+- Setup the environment variables with your GitHub Id and Token
+- [See here for more details](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 ```bash
 cp .env.local.example .env
 ```
