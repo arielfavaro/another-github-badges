@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
-    res.redirect('https://github.com/arielfavaro');
+    res.redirect('https://github.com/arielfavaro/another-github-badges');
 });
 
 routerBadges.get('/', (req, res) => {
