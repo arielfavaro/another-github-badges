@@ -41,6 +41,10 @@ routerBadges.get('/visits/:user/:repo', async (req, res) => {
         // TODO check better usage
         const { dataValues } = await repoDatabase.increment('visits');
 
+        await db.RepoVisit.create({
+            RepoId: repoDatabase.id,
+        });
+
         return res.type('svg').send(visits(dataValues.visits));
 
     } catch (error) {
