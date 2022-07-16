@@ -21,6 +21,19 @@ or
 <img src="https://another-github-badges.ari.dev.br/badges/visits/your-username/your-repository-name" />
 ```
 
+### Visits History - Last 7 days
+![](https://another-github-badges.ari.dev.br/badges/visits-history/arielfavaro/another-github-badges)
+
+Replace `your-username` and `your-repository-name` accordingly
+
+```markdown
+![](https://another-github-badges.ari.dev.br/badges/visits-history/your-username/your-repository-name)
+```
+or
+```markdown
+<img src="https://another-github-badges.ari.dev.br/badges/visits-history/your-username/your-repository-name" />
+```
+
 ## TODO 📌
 ### Application
 - Add home page
