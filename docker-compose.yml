@@ -24,6 +24,10 @@ services:
         volumes:
             - database_data:/var/lib/mysql
         restart: unless-stopped
-
+    adminer:
+        image: adminer
+        restart: unless-stopped
+        ports:
+        - 8080:8080
 volumes:
     database_data:
