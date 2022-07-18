@@ -114,6 +114,49 @@ routerBadges.get('/visits-history/:user/:repo', async (req, res) => {
 
 });
 
+routerBadges.get('/stargazers/:user/:repo', async (req, res) => {
+
+    const { user, repo } = req.params;
+
+    const perPage = 50;
+
+    try {
+
+        const repoInfoResponse = await apiGithub.get(`/repos/${user}/${repo}`);
+
+        const stargazersTotalCount = repoInfoResponse.data.stargazers_count;
+
+        const pagesCount = Math.round(stargazersTotalCount / perPage);
+
+        const fetchStargazers = async (page) => await apiGithub.get(`/repos/${user}/${repo}/stargazers`, {
+            headers: {
+                'Accept': 'application/vnd.github.star+json',
+            },
+            params: {
+                per_page: perPage,
+                page: page,
+            },
+        });
+
+        const starredAtDates = [];
+
+        for (let i = 1; i <= pagesCount; i++) {
+            const { data } = await fetchStargazers(i);
+
+            const stars = data.map(item => item.starred_at);
+
+            starredAtDates.push(...stars);
+        }
+
+        res.send(starredAtDates);
+
+    } catch (error) {
+        console.error(error);
+        res.send('Ooops');
+    }
+
+});
+
 app.use('/badges', routerBadges);
 
 app.listen(port, () => console.log(`App running on port ${port} 🚀`));
