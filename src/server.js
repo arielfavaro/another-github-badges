@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const routerBadges = express.Router();
+const nocache = require('nocache');
 const { visits } = require('./lib/badges');
 const apiGithub = require('./services/apiGithub');
 const db = require('./models/index');
@@ -12,6 +13,8 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+routerBadges.use(nocache());
 
 app.get('/', (req, res) => {
     res.redirect('https://github.com/arielfavaro/another-github-badges');
