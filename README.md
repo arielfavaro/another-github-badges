@@ -39,7 +39,7 @@ or
 - Add home page
 - Add page showing badges and examples when visiting `/badges`
 ### Badges
-- Add badge that shows on chart the last 7 days visits history
+- Add options on badge `Visits History`, like width, height, color theme
 - Add badges themes
 - Add badges translations
 
